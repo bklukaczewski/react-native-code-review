@@ -6,7 +6,7 @@ import {SafeAreaView} from "react-native";
 export default class App extends React.Component {
     render() {
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{flex: 1}}>
                 <ContactList/>
             </SafeAreaView>
         );
