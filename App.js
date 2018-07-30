@@ -1,7 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 
-import contacts from './contacts.json';
 import {ContactListItem} from './ContactListItem';
 
 /*
@@ -23,12 +22,24 @@ import {ContactListItem} from './ContactListItem';
 
 export default class App extends React.Component {
 
+    state = {
+        contacts: [],
+    };
+
+    async componentWillMount() {
+        try {
+            const response = await fetch('https://api.myjson.com/bins/c2o36');
+            const contacts = await response.json();
+            this.setState({contacts})
+        } catch (e) { }
+    };
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.header}>Contacts</Text>
                 <FlatList
-                    data={contacts}
+                    data={this.state.contacts}
                     contentContainerStyle={styles.content}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({item}) => <ContactListItem {...item} />}
