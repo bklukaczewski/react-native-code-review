@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
         borderColor: '#888',
         borderWidth: StyleSheet.hairlineWidth,
         marginBottom: 5,
+        flex: 1,
     }
 });
