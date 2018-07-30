@@ -41,6 +41,7 @@ export default class App extends React.Component {
                 <FlatList
                     data={this.state.contacts}
                     contentContainerStyle={styles.content}
+                    numColumns={2}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({item}) => <ContactListItem {...item} />}
                 />

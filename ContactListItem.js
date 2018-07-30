@@ -4,20 +4,26 @@ import {Icon} from 'react-native-elements';
 
 export const ContactListItem = ({firstName, lastName, phone}) => (
     <View style={styles.container}>
-        <Text>{firstName}</Text>
-        <Text>{lastName}</Text>
-        <Text>{phone}</Text>
-        <Icon name="phone"/>
+        <View style={styles.row}>
+            <View>
+                <Text>{firstName} {lastName}</Text>
+                <Text>{phone}</Text>
+            </View>
+            <Icon name="phone"/>
+        </View>
     </View>
 );
 
 const styles = StyleSheet.create({
     // place your styles here
     container: {
-        padding: 10,
         borderColor: '#888',
         borderWidth: StyleSheet.hairlineWidth,
-        marginBottom: 5,
-        flex: 1,
-    }
+        flex: 0.5,
+    },
+    row: {
+        padding: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
 });
